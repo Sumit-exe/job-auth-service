@@ -1,0 +1,15 @@
+server:
+  port: 8082
+logging:
+  level:
+    org.springframework.data.cassandra: INFO
+
+spring:
+  application:
+    name: authservice
+  cassandra:
+    contact-points: localhost
+    port: 9042
+    keyspace-name: scheduler
+    local-datacenter: datacenter1
+    schema-action: create-if-not-exists
