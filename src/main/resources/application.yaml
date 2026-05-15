@@ -1,15 +1,23 @@
 server:
-  port: 8082
+  port: ${SERVER_PORT:8080}
+
 logging:
   level:
-    org.springframework.data.cassandra: INFO
+    org.springframework.data.cassandra: ${CASSANDRA_LOG_LEVEL:INFO}
 
 spring:
   application:
-    name: authservice
+    name: ${APPLICATION_NAME:authservice}
+
   cassandra:
-    contact-points: localhost
-    port: 9042
-    keyspace-name: scheduler
-    local-datacenter: datacenter1
-    schema-action: create-if-not-exists
+    keyspace-name: ${CASSANDRA_KEYSPACE:scheduler}
+    schema-action: ${CASSANDRA_SCHEMA_ACTION:CREATE_IF_NOT_EXISTS}
+
+  data:
+    cassandra:
+      username: ${CASSANDRA_USERNAME}
+      password: ${CASSANDRA_PASSWORD}
+
+datastax:
+  astra:
+    secure-connect-bundle: ${ASTRA_SECURE_CONNECT_BUNDLE:src/main/resources/secure-connect.zip}
