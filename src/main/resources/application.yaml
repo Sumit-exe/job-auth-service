@@ -15,9 +15,18 @@ spring:
 
   data:
     cassandra:
-      username: ${CASSANDRA_USERNAME}
-      password: ${CASSANDRA_PASSWORD}
+      username: ${CASSANDRA_USERNAME:QnoMwZSZDbBLryRJkOQLQBsF}
+      password: ${CASSANDRA_PASSWORD:jpBkCGyEUzSBJF0,U1bmqxwWn+Fb5jqch-4r2l4itPRnkij0jQaLIRnwT-wYHnvWGrK7iU,ZKNcXaow3RyaQkumE01c7hexP1uH1mXTQGTGzjSCpK+U4HHJ8-hxm,YEN}
 
 datastax:
   astra:
     secure-connect-bundle: ${ASTRA_SECURE_CONNECT_BUNDLE:src/main/resources/secure-connect.zip}
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health
+#  endpoint:
+#    health:
+#      show-details: always
